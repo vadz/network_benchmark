@@ -1,6 +1,8 @@
 // Simplest possible single-threaded server using ASIO without TLS.
 
+#include <iomanip>
 #include <iostream>
+
 #include <boost/asio.hpp>
 
 #include "netbench/common.hpp"
@@ -34,7 +36,12 @@ int main(int argc, char* argv[])
                 throw system_error(ec);
         }
 
-        std::cout << "Received " << total << " bytes in " << sw.msec() << "ms\n";
+        auto const ms = sw.msec();
+        std::cout << "Received " << total << " bytes in " << ms << "ms ("
+                  << std::setiosflags(std::ios_base::fixed)
+                  << std::setprecision(1)
+                  << (static_cast<float>(total)*1000 / (1024*1024*ms))
+                  << " MiB/s)\n";
 
         return 0;
     } catch (std::exception& e) {
