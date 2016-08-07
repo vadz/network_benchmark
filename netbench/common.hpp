@@ -3,9 +3,13 @@
 #define network_benchmarks_common_h_
 
 #include <chrono>
+#include <iomanip>
+#include <iostream>
 
 namespace netbench
 {
+
+using milliseconds = std::chrono::milliseconds;
 
 // Simplest possible stopwatch class allowing to measure the time taken by some
 // code.
@@ -19,15 +23,26 @@ public:
     {
     }
 
-    long long msec() const
+    milliseconds msec() const
     {
-        auto const d = clock::now() - start_;
-        return std::chrono::duration_cast<std::chrono::milliseconds>(d).count();
+        return std::chrono::duration_cast<milliseconds>(clock::now() - start_);
     }
 
 private:
     clock::time_point start_;
 };
+
+// Show the time taken to transfer the given amount of bytes and the speed
+// computed from it.
+inline void
+print_time_and_speed(char const* verb, size_t total, milliseconds ms)
+{
+    std::cout << verb << " " << total << " bytes in " << ms.count() << "ms ("
+              << std::setiosflags(std::ios_base::fixed)
+              << std::setprecision(1)
+              << (static_cast<float>(total)*1000 / (1024*1024*ms.count()))
+              << " MiB/s)\n";
+}
 
 } // namespace netbench
 
