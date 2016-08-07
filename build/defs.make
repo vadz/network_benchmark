@@ -26,3 +26,19 @@ else
     OUTPUT_FLAG = -o$@
     LIB_PATH_FLAG := -L
 endif
+
+# Debugging support.
+ifdef DEBUG
+    ifdef USE_MSVC
+	CXXFLAGS += /Zi
+	LDFLAGS += /debug
+    else
+	CXXFLAGS += -g
+    endif
+else
+    ifdef USE_MSVC
+	CXXFLAGS += /O2
+    else
+	CXXFLAGS += -O2
+    endif
+endif
