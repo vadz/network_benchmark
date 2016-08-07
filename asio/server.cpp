@@ -14,8 +14,8 @@ using asio::ip::tcp;
 int main(int argc, char* argv[])
 {
     try {
-        auto const
-            port = netbench::get_port_from_command_line_or_exit(argc, argv);
+        unsigned short port = 0;
+        netbench::parse_server_command_line_or_exit(argc, argv, port);
 
         asio::io_service io;
         tcp::acceptor acc(io, tcp::endpoint(tcp::v4(), port));

@@ -3,6 +3,8 @@
 #define network_benchmarks_common_h_
 
 #include <chrono>
+#include <climits>
+#include <cstdlib>
 #include <iomanip>
 #include <iostream>
 
@@ -42,6 +44,19 @@ print_time_and_speed(char const* verb, size_t total, milliseconds ms)
               << std::setprecision(1)
               << (static_cast<float>(total)*1000 / (1024*1024*ms.count()))
               << " MiB/s)\n";
+}
+
+// Parse the port specified by the given string and exit if it's invalid.
+unsigned short
+parse_port_or_exit(char const* s)
+{
+    auto const port = std::atoi(s);
+    if (port <= 0 || port > USHRT_MAX) {
+        std::cerr << "\"" << s << "\" is not a valid port number\n";
+        std::exit(1);
+    }
+
+    return static_cast<unsigned short>(port);
 }
 
 } // namespace netbench
