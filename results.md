@@ -12,5 +12,7 @@ A Windows 7 and a Debian/Wheezy (kernel 3.2.0) machine.
 | Windows                      | Linux                        | Speed (MiB/s) |
 |------------------------------|------------------------------|---------------|
 | iperf -s                     | iperf -c                     |            58 |
+| iperf -c                     | iperf -s                     |            58 |
 | ASIO sync server             | netcat                       |            56 |
 | ASIO sync server             | ASIO sync client             |            53 |
+| ASIO sync client             | ASIO sync server             |            50 |
