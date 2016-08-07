@@ -27,3 +27,12 @@ locations searched by the compiler/linker, the `XXX_INCLUDE_DIR` and
 `XXX_LIB_DIR` variables need to be defined to point to them, e.g.
 
 	$ make -C asio BOOST_INCLUDE_DIR=$HOME/include BOOST_LIB_DIR=$HOME/lib
+
+Certificates
+------------
+
+By default self-signed certificate from this repository itself is used for
+TLS-enabled benchmarks, feel free to replace it with any other one. For the
+record, this certificate was created using the following command:
+
+	$ openssl req -newkey rsa:2048 -nodes -keyout snakeoil.priv -x509 -days 3655 -out snakeoil.pem -subj "/C=FR/L=Paris/O=Network benchmarks/CN=netbench.tt-solutions.com"

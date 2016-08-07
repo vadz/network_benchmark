@@ -20,6 +20,7 @@ A Windows 7 and a Debian/Wheezy (kernel 3.2.0) machine.
 |------------------------------|------------------------------|---------------|
 | iperf                        | iperf                        |          54.0 |
 | ASIO sync                    | ASIO sync                    |          49.2 |
+| ASIO sync TLS                | ASIO sync TLS                |          45.1 |
 | ASIO sync                    | ASIO async                   |          49.0 |
 | ASIO async                   | ASIO sync                    |          48.4 |
 | ASIO async                   | ASIO async                   |          54.1 |
@@ -30,6 +31,7 @@ A Windows 7 and a Debian/Wheezy (kernel 3.2.0) machine.
 |------------------------------|------------------------------|---------------|
 | iperf                        | iperf                        |          55.8 |
 | ASIO sync                    | ASIO sync                    |          46.9 |
+| ASIO sync TLS                | ASIO sync TLS                |          47.3 |
 | ASIO sync                    | ASIO async                   |          46.6 |
 | ASIO async                   | ASIO sync                    |          48.9 |
 | ASIO async                   | ASIO async                   |          51.1 |
