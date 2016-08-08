@@ -20,9 +20,14 @@ class stop_watch
 public:
     using clock = std::chrono::high_resolution_clock;
 
-    stop_watch() :
-        start_(clock::now())
+    stop_watch()
     {
+        reset();
+    }
+
+    void reset()
+    {
+        start_ = clock::now();
     }
 
     milliseconds msec() const

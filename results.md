@@ -24,6 +24,7 @@ A Windows 7 and a Debian/Wheezy (kernel 3.2.0) machine.
 | ASIO sync                    | ASIO async                   |          49.0 |
 | ASIO async                   | ASIO sync                    |          48.4 |
 | ASIO async                   | ASIO async                   |          54.1 |
+| WSPP                         | WSPP                         |          46.7 |
 
 ### Windows server/Linux client
 
@@ -35,3 +36,4 @@ A Windows 7 and a Debian/Wheezy (kernel 3.2.0) machine.
 | ASIO sync                    | ASIO async                   |          46.6 |
 | ASIO async                   | ASIO sync                    |          48.9 |
 | ASIO async                   | ASIO async                   |          51.1 |
+| WSPP                         | WSPP                         |          47.1 |
