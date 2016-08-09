@@ -19,6 +19,7 @@ endif
 # Compiler-specific stuff.
 ifdef USE_MSVC
     CXX := cl /nologo /D_WIN32_WINNT=0x0600 /D_SCL_SECURE_NO_WARNINGS /D_CRT_SECURE_NO_WARNINGS /W4 /wd4127 /MD /EHsc
+    OUTPUT_FLAG = /Fd${@:.exe=.pdb}
     LINK_START_FLAG := /link
     LIB_PATH_FLAG := /libpath:
 else
