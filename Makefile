@@ -1,4 +1,4 @@
-SUBDIRS := asio asio_async asio_tls wspp
+SUBDIRS := asio asio_async asio_tls wspp wspp_tls
 
 all: $(foreach d,$(SUBDIRS),$d.build)
 
