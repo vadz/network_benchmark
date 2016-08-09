@@ -13,6 +13,5 @@ $(client): client.cpp $(ROOT_DIR)/netbench/common.hpp $(ROOT_DIR)/netbench/clien
 clean:
 	$(RM) $(wildcard server$(EXE_EXT)) $(wildcard client$(EXE_EXT))
 ifdef WINDOWS
-	$(RM) $(wildcard *.obj)
+	$(RM) $(wildcard *.obj) $(wildcard *.pdb)
 endif
-
