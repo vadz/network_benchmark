@@ -6,8 +6,8 @@
 #include <boost/asio/ssl.hpp>
 
 #include "netbench/common.hpp"
-#include "netbench/dhparams.h"
 #include "netbench/server.hpp"
+#include "netbench/tls.hpp"
 
 using namespace boost::system;
 namespace asio = boost::asio;
@@ -21,19 +21,7 @@ int main(int argc, char* argv[])
         netbench::parse_server_command_line_or_exit(argc, argv, port);
 
         asio::io_service io;
-
-        asio::ssl::context ctx(asio::ssl::context::tlsv12);
-        ctx.set_options(
-                boost::asio::ssl::context::default_workarounds |
-                boost::asio::ssl::context::no_sslv2 |
-                boost::asio::ssl::context::no_sslv3 |
-                boost::asio::ssl::context::no_tlsv1 |
-                boost::asio::ssl::context::single_dh_use
-            );
-        ctx.use_certificate_chain_file("snakeoil.crt");
-        ctx.use_private_key_file("snakeoil.key", asio::ssl::context::pem);
-        ctx.use_tmp_dh(boost::asio::const_buffer(dhparams_data, dhparams_len));
-
+        auto ctx = netbench::make_server_tls_context();
         tcp::acceptor acc(io, tcp::endpoint(tcp::v4(), port));
         ssl_socket sock(io, ctx);
         acc.accept(sock.lowest_layer());

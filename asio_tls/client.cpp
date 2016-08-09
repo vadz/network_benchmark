@@ -9,6 +9,7 @@
 
 #include "netbench/common.hpp"
 #include "netbench/client.hpp"
+#include "netbench/tls.hpp"
 
 using namespace boost::system;
 namespace asio = boost::asio;
@@ -29,7 +30,7 @@ int main(int argc, char* argv[])
         tcp::resolver res(io);
         tcp::resolver::query query(tcp::v4(), host, std::to_string(port));
 
-        asio::ssl::context ctx(asio::ssl::context::tlsv12);
+        auto ctx = netbench::make_client_tls_context();
         ssl_socket sock(io, ctx);
 
         asio::connect(sock.lowest_layer(), res.resolve(query));

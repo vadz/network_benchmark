@@ -16,3 +16,5 @@ ifneq ($(OPENSSL_LIB_DIR),)
     LIBS := $(LIB_PATH_FLAG)$(OPENSSL_LIB_DIR) $(LIBS)
 endif
 
+# This is used as a dependency in rules.make
+TLS_HEADER := $(ROOT_DIR)/netbench/tls.hpp
