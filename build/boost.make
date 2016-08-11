@@ -1,8 +1,8 @@
 # Configurable options, set them if Boost headers/libraries (only boost_system
 # is really needed) are not found by the compiler/linker in the default
 # locations.
-BOOST_INCLUDE_DIR :=
-BOOST_LIB_DIR :=
+# BOOST_INCLUDE_DIR :=
+# BOOST_LIB_DIR :=
 
 # Don't automatically link with the corresponding libraries with MSVC, we
 # don't really need them.

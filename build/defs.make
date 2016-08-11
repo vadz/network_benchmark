@@ -43,3 +43,7 @@ else
 	CXXFLAGS += -O2
     endif
 endif
+
+# This file may contain local definitions of configurable options. It's not
+# under version control.
+-include ../build/localopts.make

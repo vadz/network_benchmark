@@ -1,7 +1,7 @@
 # Configurable options, set them if OpenSSL headers/libraries are not found by
 # the compiler/linker in the default locations.
-OPENSSL_INCLUDE_DIR :=
-OPENSSL_LIB_DIR :=
+# OPENSSL_INCLUDE_DIR :=
+# OPENSSL_LIB_DIR :=
 
 ifdef WINDOWS
     LIBS += libeay32.lib ssleay32.lib

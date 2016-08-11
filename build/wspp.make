@@ -1,6 +1,6 @@
 # Configurable option, set it to the directory containing WebSocket++ headers
 # if it's not one of the standard ones.
-WSPP_INCLUDE_DIR :=
+# WSPP_INCLUDE_DIR :=
 
 ifneq ($(WSPP_INCLUDE_DIR),)
     CPPFLAGS += -I$(WSPP_INCLUDE_DIR)
