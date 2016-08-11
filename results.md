@@ -27,6 +27,8 @@ A Windows 7 and a Debian/Wheezy (kernel 3.2.0) machine.
 | ASIO async TLS               | ASIO async TLS               |          51.5 |
 | WSPP                         | WSPP                         |          46.7 |
 | WSPP TLS                     | WSPP TLS                     |          40.8 |
+| WSPP                         | Beast                        |          46.9 |
+| Beast                        | Beast                        |          39.7 |
 
 ### Windows server/Linux client
 
@@ -41,3 +43,5 @@ A Windows 7 and a Debian/Wheezy (kernel 3.2.0) machine.
 | ASIO async TLS               | ASIO async TLS               |          49.5 |
 | WSPP                         | WSPP                         |          47.1 |
 | WSPP TLS                     | WSPP TLS                     |          47.6 |
+| WSPP                         | Beast                        |          47.0 |
+| Beast                        | Beast                        |          51.0 |
