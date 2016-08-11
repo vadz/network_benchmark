@@ -53,23 +53,24 @@ int main(int argc, char* argv[])
 
                 netbench::print_time_and_speed("Sent", size, sw.msec());
 
-                ws.async_close(
-                    beast::websocket::close_code::going_away,
-                    [&](error_code ec) {
-                        if (ec)
-                            throw system_error(ec);
+                ws.close(beast::websocket::close_code::going_away, ec);
+                if (ec)
+                    throw system_error(ec);
 
-                        async_teardown(
-                            beast::websocket::teardown_tag{},
-                            sock,
-                            [&](error_code ec) {
-                                if (ec)
-                                    throw system_error(ec);
-                                io.stop();
-                            }
-                        );
+                beast::websocket::opcode op;
+                beast::streambuf sb;
+                ws.read(op, sb, ec);
+
+                if (ec) {
+                    if (ec != beast::websocket::error::closed &&
+                            ec != asio::error::eof) {
+                        throw system_error(ec);
                     }
-                );
+                } else {
+                    std::cerr << "Ignoring unexpected data after close\n";
+                }
+
+                io.stop();
             }
         );
 
