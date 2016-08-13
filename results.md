@@ -30,8 +30,8 @@ A Windows 7 and a Debian/Wheezy (kernel 3.2.0) machine.
 | WSPP                         | Beast                        |          46.9 |
 | Beast                        | Beast                        |          41.8 |
 | WSPP TLS                     | Beast TLS                    |          40.1 |
-| Beast TLS                    | Beast TLS                    |          37.5 |
-| Beast TLS                    | WSPP TLS                     |          28.2 |
+| Beast TLS                    | Beast TLS                    |          35.7 |
+| Beast TLS                    | WSPP TLS                     |          38.0 |
 
 ### Windows server/Linux client
 
@@ -47,6 +47,6 @@ A Windows 7 and a Debian/Wheezy (kernel 3.2.0) machine.
 | WSPP                         | WSPP                         |          47.1 |
 | WSPP TLS                     | WSPP TLS                     |          47.6 |
 | WSPP                         | Beast                        |          47.0 |
-| Beast                        | Beast                        |          50.3 |
-| Beast TLS                    | WSPP TLS                     |          49.1 |
-| Beast TLS                    | Beast TLS                    |          24.6 |
+| Beast                        | Beast                        |          50.5 |
+| Beast TLS                    | WSPP TLS                     |          51.3 |
+| Beast TLS                    | Beast TLS                    |          51.3 |

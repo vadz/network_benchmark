@@ -41,6 +41,7 @@ int main(int argc, char* argv[])
         beast::websocket::stream<ssl_socket&> ws(sock);
         ws.handshake(uri.str(), "/");
 
+        ws.set_option(beast::websocket::message_type{beast::websocket::opcode::binary});
         ws.set_option(beast::websocket::auto_fragment_size{0});
 
         auto const data = netbench::make_buffer(size);
