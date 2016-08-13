@@ -34,6 +34,8 @@ int main(int argc, char* argv[])
         beast::websocket::stream<tcp::socket&> ws(sock);
         ws.handshake(uri.str(), "/");
 
+        ws.set_option(beast::websocket::auto_fragment_size{0});
+
         auto const data = netbench::make_buffer(size);
 
         netbench::stop_watch sw;
